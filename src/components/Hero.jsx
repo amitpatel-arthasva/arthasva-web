@@ -5,13 +5,6 @@ import Logo from '../assets/images/Logo.png';
 const Hero = () => {
   return (
     <div 
-      className="min-h-screen w-full relative"
-      style={{
-        background: 'linear-gradient(45deg, #0B132B, #3A506B, #1C2541)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        overflow: 'hidden'
-      }}
     >
       {/* Logo at the top left */}
       <div className="absolute top-6 left-6 md:top-8 md:left-10 z-30">
@@ -19,7 +12,7 @@ const Hero = () => {
       </div>
       
       {/* Main content container - set to full height and flex center */}
-      <div className="w-full h-screen flex items-center justify-center">
+      <div className="w-screen h-screen flex items-center justify-center">
         <div className="container mx-auto px-4 pt-20 md:pt-0 flex flex-col md:flex-row items-center md:items-center justify-between">
           {/* Text Content */}
           <div className="text-center md:text-left md:w-1/2 z-10 font-[MuktaVaani]">

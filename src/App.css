@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+body {
+  background: #181c25;
+  color: #f1f5f9;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6; 
+  filter: blur(50px);
+  mix-blend-mode: lighten;
+  transition: background 1s;
+}
+.circle1 {
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle, #38bdf8 0%, #a21caf 60%, #181c25 100%);
+  top: 10%;
+  left: 5%;
+  animation: 
+    x1 28s linear infinite alternate,
+    y1 24s ease-in-out infinite,  
+	scale1 20s ease-in-out infinite alternate;
+}
+.circle2 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #f472b6 0%, #64748b 60%, #181c25 100%);
+  bottom: 10%;
+  right: 5%;
+  animation: 
+    x2 32s linear infinite alternate,
+    y2 26s ease-in-out infinite, 
+    scale2 22s ease-in-out infinite alternate;
+}
+.circle3 {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, #34d399 0%, #818cf8 60%, #181c25 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: 
+    x3 30s linear infinite alternate,
+    y3 25s ease-in-out infinite,  
+    scale3 18s ease-in-out infinite alternate;
+}
+
+@keyframes x1 {
+  0% { left: 5%; }
+  100% { left: 30%; }
+}
+
+@keyframes y1 {
+  0% { top: 10%; }
+  50% { top: 35%; }
+  100% { top: 10%; }
+}
+
+@keyframes scale1 {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes x2 {
+  0% { right: 5%; }
+  100% { right: 25%; }
+}
+
+@keyframes y2 {
+  0% { bottom: 10%; }
+  50% { bottom: 40%; }
+  100% { bottom: 10%; }
+}
+
+@keyframes scale2 {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(-8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes x3 {
+  0% { margin-left: -20%; }
+  100% { margin-left: 20%; }
+}
+
+@keyframes y3 {
+  0% { margin-top: -15%; }
+  50% { margin-top: 15%; }
+  100% { margin-top: -15%; }
+}
+
+@keyframes scale3 {
+  0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  50% { transform: translate(-50%, -50%) scale(1.25) rotate(-5deg); }
+  100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+
+
+.bg-white\/10 {
+  background-color: rgba(24, 28, 37, 0.7) !important;
+}
