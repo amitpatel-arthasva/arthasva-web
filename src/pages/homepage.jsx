@@ -1,21 +1,18 @@
-import React from 'react';
-import LaptopDisplay from './LaptopDisplay';
-import Logo from '../assets/images/Logo.png';
-import './css/constants.css'
+import IMage from '../assets/images/servicesicon/mobile.svg';
 
-const Hero = () => {
+const HomePage = () => {
   return (
-    <div>
-
+    <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-br from-[#0B132B] via-[#1C2541] to-[#3A506B]">
       {/* Main content container - set to full height and flex center */}
       <div className="w-screen h-screen flex items-center justify-center">
         <div className="container mx-auto px-4 pt-20 md:pt-0 flex flex-col md:flex-row items-center md:items-center justify-between">
+          
           {/* Text Content */}
           <div>
-            <h2 className="text-special " >
+            <h2 className="text-special">
               EASIEST & TRUSTED
             </h2>
-            <h1 className="text4">
+            <h1 className="text-normal">
               FINANCE MANAGER EVER
             </h1>
             <p className="text-lg md:text-xl text-gray-200 max-w-2xl mb-8">
@@ -26,14 +23,20 @@ const Hero = () => {
               GET STARTED
             </button>
           </div>
-          
+
+          {/* Image Section */}
           <div className="md:w-1/2 mt-6 md:mt-0 h-[400px] md:h-[500px] flex items-center justify-center">
-            <LaptopDisplay />
+            <img
+              src={IMage}
+              alt="Finance Mobile Preview"
+              className="w-full h-auto max-h-full object-contain"
+            />
           </div>
+
         </div>
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default HomePage;

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani&display=swap');
 
 @font-face {
   font-family: 'MuktaVaani';
@@ -8,5 +8,18 @@
   font-display: swap;
 }
 
+.container{
+  padding-left: 10%;
+  padding-right: 10%;
+}
 
-
+.btn{
+  background:#00718A;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  border: 0;
+  font-family:  'MuktaVaani', 'Mukta Vaani', sans-serif;
+  color: #6FFFE9;
+}
