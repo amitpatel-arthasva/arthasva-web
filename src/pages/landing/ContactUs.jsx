@@ -5,7 +5,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 // Contact information object
 const contactInfo = {
-  email: "support@arthasva.com",
+  email: "contact@arthasva.com",
   phone: "+91 8459120961"
 };
 
