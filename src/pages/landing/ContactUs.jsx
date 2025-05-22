@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '/src/components/common/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -22,49 +22,21 @@ const ContactUs = () => {
     message: ''
   });
 
+  useEffect(() => {
+    const success = localStorage.getItem('formSubmitted');
+    if (success === 'true') {
+      setFormStatus({
+        submitted: true,
+        error: false,
+        message: 'Thank you for your message! We will get back to you soon.'
+      });
+      localStorage.removeItem('formSubmitted');
+    }
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Validate form
-    if (!formData.name || !formData.email) {
-      setFormStatus({
-        submitted: false,
-        error: true,
-        message: 'Name and email are required fields.'
-      });
-      return;
-    }
-
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setFormStatus({
-        submitted: false,
-        error: true,
-        message: 'Please enter a valid email address.'
-      });
-      return;
-    }
-
-    // Here you would typically send the data to your backend
-    // For demo purposes, we'll just show a success message
-    setFormStatus({
-      submitted: true,
-      error: false,
-      message: 'Thank you for your message! We will get back to you soon.'
-    });
-    
-    // Reset form after submission
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
   };
 
   return (
@@ -118,7 +90,41 @@ const ContactUs = () => {
               </div>
             ) : null}
 
-            <form onSubmit={handleSubmit} className="space-y-6 md:bg-[#2D1F3A]/40 md:p-6 rounded-xl">
+            <form 
+              action="https://formsubmit.co/contact@arthasva.com" 
+              method="POST" 
+              className="space-y-6 md:bg-[#2D1F3A]/40 md:p-6 rounded-xl"
+              onSubmit={() => localStorage.setItem('formSubmitted', 'true')}
+            >
+              {/* Hidden field for auto-redirect after submission */}
+              <input 
+                type="hidden" 
+                name="_next" 
+                value={`${window.location.origin}/`} 
+              />
+              {/* Hidden field for redirect delay */}
+              <input 
+                type="hidden" 
+                name="_autoresponse" 
+                value="Thank you for contacting Arthasva. We will get back to you soon. You will be redirected back in 5 seconds." 
+              />
+              <input 
+                type="hidden" 
+                name="_subject" 
+                value="New Contact Form Submission on Arthasva" 
+              />
+              <input 
+                type="hidden" 
+                name="_captcha" 
+                value="false" 
+              />
+              {/* Store form submission status */}
+              <input
+                type="hidden"
+                name="_honey"
+                value=""
+              />
+
               <div>
                 <label htmlFor="name" className="block text-gray-200 mb-2">
                   Name *
